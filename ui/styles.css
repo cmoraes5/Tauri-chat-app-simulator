@@ -13,20 +13,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0D0D0D; /* Preto profundo */
-  color: #FFFFFF; /* Branco puro para contraste */
+  background-color: #0D0D0D; 
+  color: #FFFFFF; 
 }
 
 .app {
   display: flex;
   width: 100%;
   height: 100%;
-  background-color: #121212; /* Preto escuro */
+  background-color: #121212; 
 }
 
 .sidebar {
   width: 200px;
-  background-color: #181818; /* Preto ligeiramente mais claro para separação sutil */
+  background-color: #181818; 
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -55,7 +55,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #4B3083; /* Detalhe em roxo */
+  background-color: #4B3083; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +67,7 @@ body {
   width: 60%;
   height: 60%;
   scale: .9;
-  filter: brightness(0) invert(1); /* Inverte a cor da imagem para branco */
+  filter: brightness(0) invert(1); 
 }
 
 .user-info {
@@ -81,7 +81,7 @@ body {
 }
 
 .active {
-  background-color: #282828; /* Preto ligeiramente mais claro para destaque */
+  background-color: #282828; 
 }
 
 .user-info img {
@@ -102,15 +102,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #212121; /* Preto escuro */
-  border-bottom: 1px solid #0D0D0D; /* Preto profundo para separação sutil */
+  background-color: #212121; 
+  border-bottom: 1px solid #0D0D0D; 
 }
 
 .chat {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  background-color: #0D0D0D; /* Preto profundo */
+  background-color: #0D0D0D; 
 }
 
 .message {
@@ -127,7 +127,7 @@ body {
 }
 
 .message-content {
-  background-color: #8125c9; /* Preto ligeiramente mais claro para destaque */
+  background-color: #8125c9; 
   padding: 10px;
   border-radius: 5px;
 }
@@ -139,18 +139,18 @@ body {
 
 .input-area {
   padding: 10px;
-  background-color: #212121; /* Preto escuro */
-  border-top: 1px solid #0D0D0D; /* Preto profundo para separação sutil */
+  background-color: #212121; 
+  border-top: 1px solid #0D0D0D; 
   display: flex;
 }
 
 .input-area input {
   flex: 1;
   padding: 10px;
-  background-color: #181818; /* Preto ligeiramente mais claro para destaque */
+  background-color: #181818; 
   border: none;
   border-radius: 5px;
-  color: #FFFFFF; /* Branco puro para contraste */
+  color: #FFFFFF; 
   margin-right: 10px;
 }
 
@@ -174,7 +174,7 @@ body {
 }
 
 .message.bot .message-content {
-  background-color: #282828; /* Preto ligeiramente mais claro para diferenciar */
+  background-color: #282828; 
 }
 
 .message.bot img {
@@ -184,7 +184,7 @@ body {
   margin-left: 10px;
 }
 
-/* Mantive os estilos para status como estavam no código original */
+
 .status-container{
   display: flex;
   align-items: center;

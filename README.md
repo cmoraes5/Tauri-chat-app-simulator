@@ -1,4 +1,4 @@
-##  Simulador de chat - App Desktop - Tauri ✨
+##  Simulador de chat - App Desktop - Tauri ![32x32](https://github.com/cmoraes5/Tauri-chat-app-simulator/assets/85966695/0a758106-9770-4758-a29e-49b3e4c93aa4)
 
 [![Tauri](https://img.shields.io/badge/Built%20with-Tauri-brightgreen)](https://tauri.app/)
 [![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
@@ -17,9 +17,11 @@ Um clone moderno e simples do Discord, construído com Rust, Tauri, HTML, CSS e 
 ![Gravando2024-05-23180631-ezgif com-video-to-gif-converter](https://github.com/cmoraes5/Tauri-chat-app-simulator/assets/85966695/e57365f2-e9c7-45fd-9ac0-eb6e332f4729)
 
 
-### Capturas de Tela:
+<p align="center">
+  <img src="https://github.com/cmoraes5/Tauri-chat-app-simulator/assets/85966695/1a8c6539-1cc0-4180-a05b-4a293362ce4d" width="500" > 
+  <img src="https://github.com/cmoraes5/Tauri-chat-app-simulator/assets/85966695/cee7d195-e8ab-4985-bdf7-7752d86c3c71" width="500" > 
+</p>
 
-![32x32](https://github.com/cmoraes5/Tauri-chat-app-simulator/assets/85966695/c96472d0-a869-4094-9393-5a6d4aa7506b)
 
 ### 💻 Sobre o desenvolvimento:
 
