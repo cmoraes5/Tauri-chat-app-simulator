@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Aplicativo de Mensagens</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="app">
+        <div class="sidebar">
+            <div class="server-list">
+              <div class="server-container">
+                <div class="server">
+                  <img src="https://www.freeiconspng.com/thumbs/rocket-png/rocket-icon-png-21.png" alt="Ícone do Servidor">
+                </div>
+                <h2 class="server-name">Random server name very big</h2> 
+              </div>
+            </div>
+            <div class="user-list" id="user-list"> 
+            </div>
+        </div>
+        <div class="main">
+          <div class="channel-header">
+              <h2>Chat bot</h2>
+              <div class="status-container">
+                <span id="status">offline</span>
+                <div id="status-ring" class="status-ring-off"></div>
+              </div>
+          </div>
+          <div class="chat" id="chat">
+          </div>
+          <div class="input-area">
+              <input type="text" id="message-input" placeholder="Digite sua mensagem...">
+              <button onclick="sendMessage()">Enviar</button>
+          </div>
+      </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

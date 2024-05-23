@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0D0D0D; /* Preto profundo */
+  color: #FFFFFF; /* Branco puro para contraste */
+}
+
+.app {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #121212; /* Preto escuro */
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #181818; /* Preto ligeiramente mais claro para separação sutil */
+  padding: 10px;
+}
+
+.server-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.server-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.server-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.server {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4B3083; /* Detalhe em roxo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.server img {
+  width: 60%;
+  height: 60%;
+  scale: .9;
+  filter: brightness(0) invert(1); /* Inverte a cor da imagem para branco */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #282828; /* Preto ligeiramente mais claro para destaque */
+}
+
+.user-info img {
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  border: 2px solid #8125c9;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #212121; /* Preto escuro */
+  border-bottom: 1px solid #0D0D0D; /* Preto profundo para separação sutil */
+}
+
+.chat {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #0D0D0D; /* Preto profundo */
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.message img {
+  width: 5%;
+  height: 5%;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message-content {
+  background-color: #8125c9; /* Preto ligeiramente mais claro para destaque */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.message-content .username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-area {
+  padding: 10px;
+  background-color: #212121; /* Preto escuro */
+  border-top: 1px solid #0D0D0D; /* Preto profundo para separação sutil */
+  display: flex;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  background-color: #181818; /* Preto ligeiramente mais claro para destaque */
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF; /* Branco puro para contraste */
+  margin-right: 10px;
+}
+
+.input-area button {
+  background-color: #8125c9;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot .message-content {
+  background-color: #282828; /* Preto ligeiramente mais claro para diferenciar */
+}
+
+.message.bot img {
+  width: 5%;
+  height: 5%;
+  order: 1;
+  margin-left: 10px;
+}
+
+/* Mantive os estilos para status como estavam no código original */
+.status-container{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.status-ring-off {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 100%;
+  background: red;
+
+  box-shadow: 0px 0px 5px red;
+}
+
+.status-ring-on {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 100%;
+  background: #00FF00;
+
+  box-shadow: 0px 0px 5px #00FF00;
+}
