@@ -16,6 +16,7 @@ Um clone moderno e simples do Discord, construído com Rust, Tauri, HTML, CSS e 
 
 ![Gravando2024-05-23180631-ezgif com-video-to-gif-converter](https://github.com/cmoraes5/Tauri-chat-app-simulator/assets/85966695/e57365f2-e9c7-45fd-9ac0-eb6e332f4729)
 
+### Capturas de tela:
 
 <p align="center">
   <img src="https://github.com/cmoraes5/Tauri-chat-app-simulator/assets/85966695/1a8c6539-1cc0-4180-a05b-4a293362ce4d" width="500" > 
