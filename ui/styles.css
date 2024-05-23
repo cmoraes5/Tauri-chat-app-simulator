@@ -28,6 +28,9 @@ body {
   width: 200px;
   background-color: #181818; /* Preto ligeiramente mais claro para separação sutil */
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .server-list {
@@ -204,4 +207,13 @@ body {
   background: #00FF00;
 
   box-shadow: 0px 0px 5px #00FF00;
+}
+
+#reset-button {
+  background-color: #8125c9;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }

@@ -8,7 +8,7 @@
     "withGlobalTauri": true
 },
   "package": {
-    "productName": "ui-testing",
+    "productName": "ui-message",
     "version": "0.1.0"
   },
   "tauri": {
@@ -59,7 +59,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "ui-testing",
+        "title": "ui-message",
         "width": 800
       }
     ]

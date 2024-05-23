@@ -4,13 +4,20 @@ const messageInput = document.getElementById('message-input');
 const userList = document.getElementById('user-list');
 
 const iconUser = "https://avatars.githubusercontent.com/u/85966695?v=4";
-const user2 = "https://community.canvaslms.com/t5/image/serverpage/image-id/53132i2C12D32FF119D4F9/image-size/large/is-moderation-mode/true?v=v2&px=999";
 
 const users = [
-  { name: "Mark", avatar: "https://community.canvaslms.com/t5/image/serverpage/image-id/53132i2C12D32FF119D4F9/image-size/large/is-moderation-mode/true?v=v2&px=999" },
-  { name: "John", avatar: "https://cdn-icons-png.flaticon.com/512/149/149071.png" }, // Exemplo de avatar diferente
+  {
+    name: "Mark",
+    avatar: "https://community.canvaslms.com/t5/image/serverpage/image-id/53132i2C12D32FF119D4F9/image-size/large/is-moderation-mode/true?v=v2&px=999"
+  },
+  {
+    name: "John",
+    avatar: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+  },
   // Adicione mais usuários aqui...
 ];
+
+const conversationHistory = {};
 
 // Variável para rastrear a conversa ativa
 let activeConversation = null;
@@ -24,19 +31,35 @@ function addUserToList(user, index) { // Adiciona o parâmetro index
   if (index === 0) {
     userDiv.classList.add('active');
     activeConversation = userDiv; // Define como conversa ativa
-  } 
+  }
 
   userDiv.innerHTML = `
     <img src="${user.avatar}" alt="Ícone do Usuário">
     <span>${user.name}</span>
   `;
 
-  // Adiciona um evento de clique para alternar a conversa
   userDiv.addEventListener('click', () => {
-    setActiveConversation(userDiv); // Passa o elemento da conversa
+    setActiveConversation(userDiv);
+    openConversation(user.name); // Abre a conversa ao clicar
   });
 
   userList.appendChild(userDiv);
+}
+
+function openConversation(userName) {
+  // Define o cabeçalho da conversa
+  document.getElementById('channel-header').textContent = userName;
+
+  // Limpa as mensagens antigas do chat
+  chat.innerHTML = '';
+
+  // Recupera o histórico da conversa do cache ou inicializa um novo
+  const history = conversationHistory[userName] || [];
+
+  // Exibe as mensagens do histórico
+  history.forEach(messageData => {
+    appendMessage(messageData.username, messageData.message, messageData.icon, messageData.type);
+  });
 }
 
 // Função para definir a conversa ativa
@@ -53,16 +76,39 @@ function setActiveConversation(conversationElement) {
   activeConversation = conversationElement;
 }
 
+// Função para enviar mensagem
 function sendMessage() {
   const messageText = messageInput.value;
   if (messageText.trim() !== '') {
-    appendMessage("Caio", messageText, icon = iconUser, "user");
+    const activeUser = document.querySelector('.user-info.active span').textContent;
+    appendMessage("Você", messageText, iconUser, "user");
     messageInput.value = '';
-    setTimeout(fetchMessagesFromAPI, 3000);
+
+    saveMessageToHistory(activeUser, "Você", messageText, iconUser, "user");
+
+    setTimeout(() => {
+      const botMessage = getBotResponse(messageText);
+
+      // Busca o avatar do usuário ativo
+      const activeUserAvatar = users.find(user => user.name === activeUser).avatar; 
+
+      changeStatusChat()
+
+      appendMessage(activeUser, botMessage, activeUserAvatar, "bot"); // Usa o avatar encontrado
+      saveMessageToHistory(activeUser, activeUser, botMessage, activeUserAvatar, "bot");
+    }, 3000);
   }
 }
 
-function appendMessage(username, messageText, icon = user2, type = "bot") {
+// Função para salvar a mensagem no histórico
+function saveMessageToHistory(userName, username, message, icon, type) {
+  if (!conversationHistory[userName]) {
+    conversationHistory[userName] = [];
+  }
+  conversationHistory[userName].push({ username, message, icon, type });
+}
+
+function appendMessage(username, messageText, icon, type = "bot") {
   const messageElement = document.createElement('div');
   messageElement.classList.add('message', type);
   messageElement.innerHTML = `
@@ -76,30 +122,49 @@ function appendMessage(username, messageText, icon = user2, type = "bot") {
   chat.scrollTop = chat.scrollHeight;
 }
 
-function fetchMessagesFromAPI() {
-  const newMessages = getMockMessages();
-  newMessages.forEach(message => {
-    appendMessage(message.username, message.message, icon = user2, "bot");
-  });
-
-  changeStatusChat()
-}
-
-function getMockMessages() {
-  return [
-    { username: "Bot", message: "Olá, tudo bem!? Em que posso ajudá-lo?" }
+function getBotResponse(message) {
+  const responses = [
+    "Olá! 👋",
+    "Como posso te ajudar?",
+    "Interessante...",
+    "Conte-me mais!",
+    "Entendo..."
   ];
+  const randomIndex = Math.floor(Math.random() * responses.length);
+  return responses[randomIndex];
 }
 
-
-// Online and Offline:
-
-function changeStatusChat() {
+// Modifica changeStatusChat para aceitar um parâmetro
+function changeStatusChat(online = true) {
   var status = document.getElementById('status');
   var statusRing = document.querySelector("#status-ring");
 
-  status.innerHTML = "online";
-  statusRing.classList.replace("status-ring-off", "status-ring-on");
+  if (online) {
+    status.innerHTML = "online";
+    statusRing.classList.replace("status-ring-off", "status-ring-on");
+  } else {
+    status.innerHTML = "offline";
+    statusRing.classList.replace("status-ring-on", "status-ring-off");
+  }
 }
 
-users.forEach(addUserToList);
+// Reset messages:
+function resetChatApp() {
+  // 1. Limpa o histórico de conversas (correção)
+  Object.keys(conversationHistory).forEach(key => {
+    delete conversationHistory[key];
+  });
+
+  // 2. Redefine o status para offline
+  changeStatusChat(false); 
+
+  // 3. Limpa o chat
+  chat.innerHTML = '';
+
+  // 4. Redefine a conversa ativa para o primeiro usuário (Mark)
+  const firstUserDiv = userList.firstChild;
+  setActiveConversation(firstUserDiv);
+  openConversation(users[0].name);
+}
+
+users.forEach(addUserToList); 	
